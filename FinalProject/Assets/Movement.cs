@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
 
     public float jumpForce;
 
-    bool isGrounded = false;
+    public bool isGrounded = false;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
     public LayerMask groundLayer;
@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Move();
+        Jump();
+        CheckIfGrounded();
     }
 
     void Move()
@@ -37,9 +39,9 @@ public class Movement : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown("Space") && isGrounded)
+        if (Input.GetKeyDown("space") && isGrounded)
         {
-            Debug.Log("hi");
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }
